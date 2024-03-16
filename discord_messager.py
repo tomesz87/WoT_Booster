@@ -3,6 +3,8 @@ import os, requests, json
 from dotenv import load_dotenv
 from datetime import datetime
 
+from utils import get_time
+
 def post_message(message: str) -> None:
     """
     Posts a message into a Discord channel via webhook. URL of Discord room is loaded from .env
@@ -29,7 +31,7 @@ def post_log(message: str) -> None:
 
     data = {}
 
-    time_text = datetime.strftime(datetime.now(), '%Y.%m.%d %H:%M:%S')
+    time_text = get_time()
     message = message + ': ' + time_text
     data["content"] = message
 
