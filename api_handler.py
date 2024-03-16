@@ -90,6 +90,10 @@ def activate_reserves(booster_list: List[Tuple]) -> None:
             # check booster status and if active, wait until the expiry time before trying to activate
             wait_time_in_seconds = get_reserve_info(reserve_type=reserve_type, reserve_level=reserve_level)
             if wait_time_in_seconds > 0:
+                if wait_time_in_seconds > 120:
+                    post_log(f"Két percnél többet kellene várni, nézd meg @tomesz87 {wait_time_in_seconds}")
+                    sys.exit()
+
                 time.sleep(wait_time_in_seconds)
             
             r = requests.post(url=url, data=params)
