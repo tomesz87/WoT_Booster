@@ -108,7 +108,6 @@ def activate_reserves(booster_list: List[Tuple]) -> None:
                 else:
                     post_log(f"{reserve_type}, level {reserve_level} activated at {activation_time}")
                     
-
             else:
                 post_log(f"Error when trying to activate reserve (inner)\n{reserve_type}, {reserve_level}\n{e}")
 
