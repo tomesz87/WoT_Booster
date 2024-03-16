@@ -32,12 +32,12 @@ def post_log(message: str) -> None:
     data = {}
 
     time_text = get_time()
-    message = message + ': ' + time_text
+    message = "**" + time_text + "**: " + message 
     data["content"] = message
 
     requests.post(url=url, data=json.dumps(data), headers={"Content-Type": "application/json"})
 
 
 if __name__ == '__main__':
-    post_message("X")
-    post_log("új log")
+    #post_message("X")
+    post_log("formázás")
